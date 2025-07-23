@@ -1,14 +1,15 @@
-pub fn add(left: u64, right: u64) -> u64 {
-    left + right
-}
+pub mod init;
 
-#[cfg(test)]
-mod tests {
-    use super::*;
+/// Re-export colored for use in macros
+pub extern crate colored;
 
-    #[test]
-    fn it_works() {
-        let result = add(2, 2);
-        assert_eq!(result, 4);
-    }
+/// A macro to log messages with a colored [LAUNCHER] prefix.
+
+#[macro_export]
+macro_rules! launcher_log {
+    ($($arg:tt)*) => {{
+        use $crate::colored::Colorize;
+        // Print [LAUNCHER] in yellow and bold, then your message  
+        println!("{} {}", "[LAUNCHER]".yellow().bold(), format!($($arg)*));
+    }};
 }

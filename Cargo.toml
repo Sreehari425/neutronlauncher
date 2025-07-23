@@ -1,4 +1,4 @@
 [workspace]
 members = ["neutron_launcher", "crates/nl_core"]
-
+resolver = "3"
 [workspace.dependencies]

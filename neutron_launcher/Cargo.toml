@@ -3,5 +3,15 @@ name = "neutron_launcher"
 version = "0.1.0"
 edition = "2024"
 
+authors = ["sreehari425 <sreehari7102008@gmail.com>"]
+description = "A simple, fast, and lightweight CLI tool to manage and launch your Linux native and Wine games"
+keywords = ["launcher", "game-tools"]
+license = "GPL-3.0-only"
+repository = "https://github.com/Sreehari425/neutronlauncher"
+readme = "../README.md"
+categories = ["games"]
+
+
 [dependencies]
 clap = { version = "4.5.41", features = ["derive"] }
+nl_core = { path = "../crates/nl_core" }

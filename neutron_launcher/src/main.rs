@@ -1,5 +1,6 @@
 use clap::{Parser, ValueEnum};
-
+use nl_core::{init::get_or_create_launcher_dir, launcher_log};
+use std::error::Error;
 #[derive(Parser, Debug)]
 #[command(name = "neutron-launcher")]
 #[command(about = "Neutron Launcher CLI", long_about = None)]
@@ -36,7 +37,7 @@ enum InstanceType {
     Wine,
 }
 
-fn main() {
+fn main() -> Result<(), Box<dyn std::error::Error>> {
     let cli = Cli::parse();
 
     match &cli.command {
@@ -46,6 +47,8 @@ fn main() {
             description,
             r#type,
         } => {
+            let launcher_dir = get_or_create_launcher_dir()?;
+            launcher_log!("Default launcher directory: {}", launcher_dir.display());
             println!("Creating instance:");
             println!("  Name: {}", name);
             println!("  Executable: {}", executable_path);
@@ -56,4 +59,5 @@ fn main() {
             println!("  Type: {:?}", r#type);
         }
     }
+    Ok(())
 }
