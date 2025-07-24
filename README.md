@@ -24,14 +24,14 @@ neutron-launcher create-instance --name <NAME> --executable-path <PATH> --type <
 **Examples:**
 
 ```bash
-# Create a Linux native game
+# Create a wine game
 neutron-launcher create-instance \
   --name "Cyberpunk 2077" \
   --executable-path "/home/user/games/cyberpunk2077/bin/Cyberpunk2077.exe" \
   --type wine \
   --description "Futuristic RPG game"
 
-# Create a Wine game
+# Create linux native game
 neutron-launcher create-instance \
   --name "Minecraft Java Edition" \
   --executable-path "/home/user/.minecraft/launcher.jar" \
