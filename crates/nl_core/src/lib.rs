@@ -1,5 +1,6 @@
 pub mod init;
 pub mod macros;
+pub mod instance_util;
 
 /// Re-export colored for use in macros
 pub extern crate colored;

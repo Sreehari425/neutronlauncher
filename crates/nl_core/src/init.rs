@@ -1,7 +1,7 @@
 use std::error::Error;
 use std::fs;
 use std::path::{Path, PathBuf};
-use crate::{error, launcher_log, Config, GameInstance};
+use crate::{error, launcher_log, Config, GameInstance, instance_util};
 
 /// Represents a game configuration
 
@@ -35,6 +35,13 @@ pub fn get_or_create_launcher_dir() -> Result<PathBuf, Box<dyn Error>> {
     }
 
     Ok(launcher_dir)
+}
+
+/// Gets or creates the launcher directory and instances subdirectory
+pub fn get_or_create_launcher_with_instances() -> Result<(PathBuf, PathBuf), Box<dyn Error>> {
+    let launcher_dir = get_or_create_launcher_dir()?;
+    let instances_dir = instance_util::create_instances_dir(&launcher_dir)?;
+    Ok((launcher_dir, instances_dir))
 }
 
 /// Creates a config.json file with the basic structure
