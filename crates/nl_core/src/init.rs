@@ -2,7 +2,7 @@ use std::error::Error;
 use std::fs;
 use std::path::{Path, PathBuf};
 //// Checks weather the user is new to Neutron Launcher
-use crate::launcher_log;
+use crate::{error, launcher_log};
 
 pub fn is_new_user() -> bool {
     let Some(config_directory) = dirs::config_dir() else {
@@ -13,6 +13,7 @@ pub fn is_new_user() -> bool {
 }
 
 //// Gets the launcher directory
+/// // Todo : use anyhow
 fn get_launcher_dir() -> Result<PathBuf, Box<dyn std::error::Error>> {
     let config_dir = dirs::config_dir().ok_or("Config directory not found")?;
     Ok(config_dir.join("NeutronLauncher"))
