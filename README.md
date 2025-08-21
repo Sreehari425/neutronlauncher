@@ -1,6 +1,6 @@
 # Neutron Launcher
 
-> **⚠️ WIP (Work In Progress)** - This project is currently under active development. Features may be incomplete or subject to change.
+> **⚠️ WIP (Work In Progress)** - This project is currently under development. Features may be incomplete or subject to change.
 
 A simple, fast, and lightweight CLI tool to manage and launch your Linux native and Wine games
 
